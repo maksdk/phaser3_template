@@ -1,4 +1,7 @@
+//@ts-check
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 module.exports = (env={}, argm={}) => {
    const { mode="development" } = argm;
@@ -7,7 +10,13 @@ module.exports = (env={}, argm={}) => {
       ? "eval-source-map" 
       : false;
 
-   const plugins = [];
+   const plugins = [
+      new CleanWebpackPlugin(),
+		new HtmlWebpackPlugin({
+			template: './index.html',
+			// filename: './index.html'
+		})
+   ];
 
    return {
       entry: {
@@ -23,6 +32,12 @@ module.exports = (env={}, argm={}) => {
       mode,
       devtool,
       plugins,
+      // devServer: {
+      //    port: 8080,
+      //    // contentBase: [ './'], // both src and output dirs
+      //    inline: true,
+      //    hot: true
+      // },
       module: {
          rules: [{
             test: /\.js$/,

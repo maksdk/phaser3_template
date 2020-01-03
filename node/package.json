@@ -4,13 +4,15 @@
   "description": "Boilerplate for work in node environment",
   "main": "index.js",
   "scripts": {
-    "dev": "babel src --out-dir _compiled --source-maps --watch"
+    "debug": "babel src --out-dir _compiled --source-maps --watch",
+    "dev": "babel-node src/index.js"
   },
   "author": "Maksym Havryshchenko",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.7.7",
     "@babel/core": "^7.7.7",
+    "@babel/node": "^7.7.7",
     "@babel/preset-env": "^7.7.7"
   },
   "dependencies": {

@@ -5,8 +5,5 @@ module.exports = {
                 node: 'current',
             },
         }],
-    ],
-
-    "sourceMaps": true,
-    "retainLines": true
+    ]
 };

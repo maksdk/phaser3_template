@@ -2,13 +2,14 @@
   "name": "node-boilerplate",
   "version": "1.0.0",
   "description": "Boilerplate for work in node environment",
+  "author": "Maksym Havryshchenko",
   "main": "index.js",
+  "license": "ISC",
   "scripts": {
     "debug": "babel src --out-dir _compiled --source-maps --watch",
-    "dev": "babel-node src/index.js"
+    "dev": "babel-node src/index.js",
+    "test": "jest --colors"
   },
-  "author": "Maksym Havryshchenko",
-  "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.7.7",
     "@babel/core": "^7.7.7",
@@ -16,6 +17,11 @@
     "@babel/preset-env": "^7.7.7"
   },
   "dependencies": {
-    "lodash": "^4.17.15"
+    "lodash": "*",
+    "jest": "*"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "bail": true
   }
 }

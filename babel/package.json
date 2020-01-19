@@ -1,0 +1,28 @@
+{
+  "name": "babel",
+  "version": "1.0.0",
+  "description": "example with babel",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maksdk/boilerplates.git"
+  },
+  "keywords": [
+    "babel"
+  ],
+  "author": "Maksym Havryshchenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maksdk/boilerplates/issues"
+  },
+  "homepage": "https://github.com/maksdk/boilerplates#readme",
+  "scripts": {
+    "build": "babel src -d dist --presets @babel/env",
+    "watch": "babel src -d dist --presets @babel/env -w"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3"
+  }
+}

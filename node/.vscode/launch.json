@@ -11,11 +11,11 @@
             "name": "Launch App.js",
 
             // the entry point to your application
-            "program": "${workspaceRoot}/node/src/index.js",
+            "program": "${workspaceRoot}/src/index.js",
 
             // tells VS Code where to find the compiled files (and source maps)
             // which will actually be used during execution of your program
-            "outFiles": [ "${workspaceRoot}/node/_compiled/**/*.js" ] 
+            "outFiles": [ "${workspaceRoot}/_compiled/**/*.js" ] 
         }
     ]
 }

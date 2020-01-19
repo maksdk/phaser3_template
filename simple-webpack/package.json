@@ -1,0 +1,32 @@
+{
+    "name": "webpack",
+    "version": "1.0.0",
+    "description": "simple boilerplate of webpack",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/maksdk/boilerplates.git"
+    },
+    "keywords": [
+        "webpack"
+    ],
+    "author": "Maksym Havryshchenko",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/maksdk/boilerplates/issues"
+    },
+    "homepage": "https://github.com/maksdk/boilerplates#readme",
+    "scripts": {
+        "dev": "webpack --mode development ./src/index.js --output ./dist/main.js --watch",
+        "dev-server": "webpack-dev-server --mode development ./src/index.js --output ./dist/main.js --watch",
+        "build": "webpack --mode production ./src/index.js --output ./dist/main.js --watch"
+    },
+    "devDependencies": {
+        "webpack": "^4.41.5",
+        "webpack-cli": "^3.3.10",
+        "webpack-dev-server": "^3.10.1"
+    },
+    "dependencies": {
+        "lodash": "^4.17.15"
+    }
+}

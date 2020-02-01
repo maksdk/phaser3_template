@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "dev": "webpack --mode development ./app/index.js --output ./dist/main.js --watch --devtool cheap-source-map"
+  },
+  "devDependencies": {
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  },
+  "dependencies": {
+    "phaser": "^3.22.0"
+  }
+}

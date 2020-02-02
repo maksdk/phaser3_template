@@ -2,7 +2,7 @@
 import Phaser from "phaser";
 import BaseGame from "../../lib/BaseGame";
 import {
-   Boot as BootScene,
+   Intro as InitScene,
    // Preloader as PreloaderScene,
    // Game as GameScene
 } from "./scenes";
@@ -15,6 +15,8 @@ export default class Game extends BaseGame {
       this.app = app;
       this.assets = assets;
       this.scene = null;
+      
+      this.scenes = { Init:  InitScene };
    }
 
    static get config() {
@@ -28,12 +30,23 @@ export default class Game extends BaseGame {
       }
    }
 
-   init(assets) {
+   /**
+    * @description Создаем игру и инициализируем все сцены
+    */
+   init() {
       const game = new Phaser.Game(Game.config);
       this.scene = game.scene;
-      this.scene.add("Boot", BootScene);
+      this.scene.add("Init", InitScene);
+      console.log(this.scene)
       // this.scene.add("Preload", PreloaderScene);
       // this.scene.add("Game", GameScene);
+   }
+
+   startScene(key, options) {
+      if (!this.scenes[key]) {
+         throw new Error(`Scene key: ${key} is not registered!`);
+      }
+      const scene = this.scene.start(key, {...options, controller: this });
    }
 
    onPreload(cb) {

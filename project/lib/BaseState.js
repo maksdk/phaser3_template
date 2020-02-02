@@ -2,18 +2,15 @@
 export default class BaseState {
    constructor(fsm) {
       this.fsm = fsm;
-      this.key = BaseState.key;
-   }
-
-   static get key() {
-      return "BaseState";
    }
 
    onExit(cb) {
+      // console.error("Exit: BaseState");
       cb && cb();
    }
-
+   
    onEnter(cb) {
+      // console.error("Enter: BaseState");
       cb && cb();
    }
 }

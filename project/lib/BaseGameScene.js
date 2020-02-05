@@ -1,13 +1,18 @@
 //@ts-check
 import Phaser from "phaser";
 
-export class BaseGameScene extends Phaser.Scene {
+export default class BaseGameScene extends Phaser.Scene {
     /**
      * @param {Phaser.Types.Scenes.SettingsConfig | String} options 
      */
     constructor(options) {
         super(options);
-        this._callbacks = {};
+        this._callbacks = {
+            onInitCb: null,
+            onPreloadCb: null,
+            onPreloadCompleteCb: null,
+            onCreateCb: null
+        };
         this._app = null;
     }
 
@@ -20,7 +25,7 @@ export class BaseGameScene extends Phaser.Scene {
      * @param {Function} [config.onCreateCb]
      */
     init(config) {
-        const { onInitCb, onPreloadCb, onPreloadCompleteCb, onCreateCb, app } = config;
+        const { onInitCb=null, onPreloadCb=null, onPreloadCompleteCb=null, onCreateCb=null, app } = config;
         
         this.app = app;
         

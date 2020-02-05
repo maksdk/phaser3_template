@@ -3,10 +3,15 @@ import { AssetsLoader } from "../../../loaders";
 
 export default class InitScene extends Phaser.Scene {
    constructor() {
-      super("Init")
+      super(InitScene.key);
+
       this.assets = {};
       this.controller = null;
       this.onPreloadCb = null;
+   }
+
+   static get key() {
+      return "Init";
    }
    
    init(data={}) {
@@ -15,8 +20,13 @@ export default class InitScene extends Phaser.Scene {
       this.controller = controller;
       this.onPreloadCb = onPreloadCb;
    }
+
+   create() {
+      // console.log("create")
+   }
    
    preload() {
+      // console.log("preload")
       // const loader = new AssetsLoader(this, this.assets);
       const loader = new AssetsLoader(this, { images:[{name: "smile", src: "../assets/emoji.png"}]});
       loader.load()

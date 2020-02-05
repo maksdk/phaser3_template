@@ -4,7 +4,8 @@ import LoadingStage from "../components/LoadingStage";
 
 export default class PreloadingScene extends Phaser.Scene {
    constructor() {
-      super("Preloading")
+      super("Preloading");
+      
       this.assets = {};
       this.controller = null;
       this.onPreloadCb = null;

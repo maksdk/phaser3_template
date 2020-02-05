@@ -17,11 +17,12 @@ export default class PreloadGameResourses extends BaseState {
 
    onEnter() {
       const { assets={}, providers, game, config } = this.fsm.app;
-
-      game.startScene("Preloading", {
+      console.log("PreloadGameResourses")
+      // game.startScene("Preloading", {
+      game.startScene("Preload", {
          onPreload: () => {
 
-            this.loadAssets(assets)
+            // this.loadAssets(assets)
          },
 
       })
@@ -30,9 +31,9 @@ export default class PreloadGameResourses extends BaseState {
    loadAssets(assets) {
       const promises = [];
 
-      promises.push(this.loadImages());
-      promises.push(this.loadSpriteAnims());
-      promises.push(this.loadSounds());
+      // promises.push(this.loadImages());
+      // promises.push(this.loadSpriteAnims());
+      // promises.push(this.loadSounds());
 
       return Promise.all(promises);
    }

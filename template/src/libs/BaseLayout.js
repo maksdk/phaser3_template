@@ -3,9 +3,9 @@ import Phaser from "phaser";
 
 /**
  * @typedef {BaseLayout} LayoutInterface
+ * @class
  * @extends Phaser.GameObjects.Container
  */
-
 export default class BaseLayout extends Phaser.GameObjects.Container {
     constructor(scene) {
         super(scene, 0, 0);

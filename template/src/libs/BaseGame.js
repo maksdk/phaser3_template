@@ -3,6 +3,7 @@ import Phaser from "phaser";
 
 /**
  * @typedef {BaseGame} GameInterface
+ * @class
  * @extends Phaser.Game
  */
 export default class BaseGame extends Phaser.Game {

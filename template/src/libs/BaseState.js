@@ -2,8 +2,8 @@
 
 /**
  * @typedef {BaseState} StateInterface
+ * @class
  */
-
 export default class BaseState {
 	/**
 	 * @param {import("./BaseFSM").FSMInterface} fsm 

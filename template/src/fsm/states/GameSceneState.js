@@ -6,6 +6,9 @@ export default class GameSceneState extends BaseState {
         this.fsm.game.scene.start("GameScene", { onCreate: (arg) => this.onCreateScene(arg) });
     }
 
+	/**
+	 * @param {import("../../libs/BaseScene").SceneInterface} scene 
+	 */
     onCreateScene(scene) {
         const GameLayout = this.fsm.game.components.get("GameLayout");
         const gameLayout = new GameLayout(scene);

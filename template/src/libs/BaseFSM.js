@@ -2,8 +2,8 @@
 
 /**
  * @typedef {BaseFSM} FSMInterface
+ * @class
  */
-
 export default class BaseFSM {
     constructor(game) {
 		/**

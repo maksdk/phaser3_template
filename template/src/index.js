@@ -20,6 +20,8 @@ const CONFIG = {
     backgroundColor: 0x000000
 };
 
-const game = Game.create(CONFIG);
-game.init();
-game.run();
+window.addEventListener("load", () => {
+	const game = Game.create(CONFIG);
+	game.init();
+	game.run();
+});

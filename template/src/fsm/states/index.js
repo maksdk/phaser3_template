@@ -1,8 +1,7 @@
 //@ts-check
-import BaseState from "./BaseState";
+import BaseState from "../../libs/BaseState";
 import MainWindowState from "./MainWindowState";
-
-import GameSceneState from "./scenes/GameSceneState";
+import GameSceneState from "./GameSceneState";
 
 export {
     BaseState,

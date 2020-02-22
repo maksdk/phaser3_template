@@ -1,11 +1,7 @@
 //@ts-check
-import { BaseState, MainWindowState } from "../index";
+import { BaseState, MainWindowState } from "./index";
 
 export default class GameSceneState extends BaseState {
-    static get id() {
-        return "GameSceneState";
-    }
-
     onEnter() {
         this.fsm.game.scene.start("GameScene", { onCreate: (arg) => this.onCreateScene(arg) });
     }
@@ -19,6 +15,6 @@ export default class GameSceneState extends BaseState {
         this.fsm.game.currentScene = scene;
         this.fsm.game.resize();
         
-        this.fsm.setState(MainWindowState.id);
+        this.fsm.setState(MainWindowState.name);
     }
 }

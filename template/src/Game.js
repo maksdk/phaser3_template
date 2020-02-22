@@ -1,27 +1,13 @@
 //@ts-check
-import Phaser from "phaser";
+// import Phaser from "phaser";
+import BaseGame from "./libs/BaseGame";
 import FSM from "./fsm/index";
-import { GameScene } from "./scenes/index";
 import * as Components from "./components/index";
+import { GameScene } from "./scenes/index";
 
-export default class Game extends Phaser.Game {
+export default class Game extends BaseGame {
     constructor(config) {
         super(config);
-
-        this.components = new Map();
-
-
-        this.fsm = null;
-
-        /**
-         * @type {Phaser.GameObjects.Container}
-         */
-        this.currentLayout = null;
-
-        /**
-         * @type {Phaser.Scene}
-         */
-        this.currentScene = null;
     }
 
     static create(config) {
@@ -31,7 +17,7 @@ export default class Game extends Phaser.Game {
 
     init() {
         this.components = Object.entries(Components)
-            .reduce((acc, [name, component]) => {
+            .reduce((acc, [ name, component ]) => {
                 if (acc.has(name)) {
                     throw new Error("Such component: ${name} already is registered!");
                 }
@@ -39,12 +25,14 @@ export default class Game extends Phaser.Game {
                 return acc;
             }, new Map());
 
-        this.scene.add("GameScene", GameScene);
-        this.fsm = new FSM(this);
+		this.scene.add("GameScene", GameScene);
+		
+		this.fsm = new FSM(this);
+		this.fsm.init();
     }
 
     run() {
-        this.fsm.run();
+		this.fsm.run();
     }
 
     resize() {

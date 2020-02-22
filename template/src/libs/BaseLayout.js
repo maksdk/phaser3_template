@@ -10,7 +10,14 @@ export default class BaseLayout extends Phaser.GameObjects.Container {
     constructor(scene) {
         super(scene, 0, 0);
 
-        this.layout0 = new Phaser.GameObjects.Container(scene, 0, 0);
+		/**
+		 * @type {Phaser.GameObjects.Container}
+		 */
+		this.layout0 = new Phaser.GameObjects.Container(scene, 0, 0);
+		
+		/**
+		 * @type {Phaser.GameObjects.Container}
+		 */
         this.layout1 = new Phaser.GameObjects.Container(scene, 0, 0);
     }
 

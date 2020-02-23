@@ -14,16 +14,16 @@ export default class UserResoursesComponent extends BaseComponent {
     }
 
     run() {
+		//@ts-ignore
         const energy = this.store.userEnergy;
         this.energyView.updateState(energy);
         this.layout.add(this.energyView);
-        
+		
+		//@ts-ignore
         this.store.on("updateUserEnergy", this.updateEnergy, this);
     }
 
     updateEnergy(state) {
         this.energyView.updateState(state);
     }
-
-
 }

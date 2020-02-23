@@ -8,9 +8,11 @@
 //> 5) PrebuildingMainWindowState
 //> 6) идея структуры: 
     //> components - сушности приложения с контролером, моделью, вьюхой
-    //> uicontainers - набор общих вьюх 
+	//> uicontainers - набор общих вьюх 
+	
 
-//> все модели сетятся  
+// TODO UserResourses: 1) timers, 2) timers emits
+
 
 import Game from "./Game.js";
 

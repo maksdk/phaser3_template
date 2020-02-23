@@ -1,19 +1,11 @@
 //@ts-check
 import BaseSubStore from "../../libs/BaseSubStore";
 
-// const test = {
-//     energy: "5",
-//     energy_type: "0",
-//     energy_max: "5",
-//     time_to_next_recovery: -1,
-//     time_to_unlimited_end: -1
-// };
-
 export default class UserEnergySubStore extends BaseSubStore {
     constructor(store) {
         super(store);
 
-        this.state = "idle"; 
+        this.state = "full"; 
         this.energy = 0;
         this.energyMax = 0;
         this.energyType = "0";
@@ -71,12 +63,12 @@ export default class UserEnergySubStore extends BaseSubStore {
     }
 
     static energies = [
-        // обычная энергия. может пребывать в двух состояниях - "idle" и с временным востановлением ("recover")
+        // обычная энергия. может пребывать в двух состояниях - "full" и с временным востановлением ("recovery")
         { 
             type: "0", 
             getState: (userEnergy) => {
-                if (userEnergy.timeToNextRecovery === -1) return "idle";
-                return "recover";
+                if (userEnergy.timeToNextRecovery === -1) return "full";
+                return "recovery";
             }
         },
 

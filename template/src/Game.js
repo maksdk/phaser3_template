@@ -1,5 +1,4 @@
 //@ts-check
-// import Phaser from "phaser";
 import Store from "./store/Store";
 import BaseGame from "./libs/BaseGame";
 import FSM from "./fsm/index";
@@ -17,6 +16,7 @@ export default class Game extends BaseGame {
     }
 
     init() {
+		// register components 
         this.components = Object.entries(Components)
             .reduce((acc, [ name, component ]) => {
                 if (acc.has(name)) {
@@ -26,11 +26,14 @@ export default class Game extends BaseGame {
                 return acc;
             }, new Map());
 
+		// add scenes 
         this.scene.add("GameScene", GameScene);
-        
+		
+		// init store
         this.store = new Store();
         this.store.init();
 		
+		// init fsm
 		this.fsm = new FSM(this);
 		this.fsm.init();
     }

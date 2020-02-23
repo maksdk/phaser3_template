@@ -1,9 +1,9 @@
 //@ts-check
 import Button from "./button/index";
-import UserResourses from "./userResourses/index";
+import UserWallet from "./userWallet/index";
 
 
 export {
     Button,
-    UserResourses
+    UserWallet
 };

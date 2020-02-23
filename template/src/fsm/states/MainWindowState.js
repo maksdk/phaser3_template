@@ -3,9 +3,8 @@ import { BaseState } from "./index";
 
 export default class MainWindowState extends BaseState {
     onEnter() {
-        const userResourses = this.fsm.game.createComponent("UserResourses");
-    
-        userResourses.init();
-        userResourses.run();
+        const userWallet = this.fsm.game.createComponent("UserWallet");
+        userWallet.init();
+        userWallet.run();
     }
 }

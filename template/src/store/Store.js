@@ -3,9 +3,6 @@ import BaseStore from "../libs/BaseStore";
 import GeneralStore from "./GeneralStore";
 import * as SubStores from "./subStores/index";
 
-/**
- * @typedef {Store} StoreType
- */
 export default class Store extends BaseStore {
     init() {
         this.general = new GeneralStore({});

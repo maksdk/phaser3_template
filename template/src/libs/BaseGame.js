@@ -10,6 +10,11 @@ export default class BaseGame extends Phaser.Game {
     constructor(config) {
         super(config);
 
+        /**
+         * @type {import("./BaseStore").StoreInterface}
+         */
+        this.store = null;
+
 		/**
 		 * @type {Map}
 		 */
@@ -30,7 +35,13 @@ export default class BaseGame extends Phaser.Game {
          */
         this.currentScene = null;
     }
-
+    /**
+     * @param {string} name 
+     * @returns {import('./BaseComponent').ComponentInterface}
+     */
+    createComponent(name) {
+        return null;
+    }
     init() { }
     run() { }
     resize() {}

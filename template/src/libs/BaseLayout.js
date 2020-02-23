@@ -7,6 +7,9 @@ import Phaser from "phaser";
  * @extends Phaser.GameObjects.Container
  */
 export default class BaseLayout extends Phaser.GameObjects.Container {
+    /**
+     * @param {import("./BaseScene").SceneInterface} scene 
+     */
     constructor(scene) {
         super(scene, 0, 0);
 

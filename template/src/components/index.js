@@ -1,8 +1,9 @@
 //@ts-check
-import GameLayout from "./GameLayout";
 import Button from "./button/index";
+import UserResourses from "./userResourses/index";
+
 
 export {
     Button,
-    GameLayout
+    UserResourses
 };

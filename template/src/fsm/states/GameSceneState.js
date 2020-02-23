@@ -1,5 +1,6 @@
 //@ts-check
 import { BaseState, MainWindowState } from "./index";
+import GameLayout from "../../viewContainers/GameLayout";
 
 export default class GameSceneState extends BaseState {
     onEnter() {
@@ -10,7 +11,6 @@ export default class GameSceneState extends BaseState {
 	 * @param {import("../../libs/BaseScene").SceneInterface} scene 
 	 */
     onCreateScene(scene) {
-        const GameLayout = this.fsm.game.components.get("GameLayout");
         const gameLayout = new GameLayout(scene);
         scene.add.existing(gameLayout);
 

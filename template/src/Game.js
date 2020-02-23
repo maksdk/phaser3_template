@@ -1,5 +1,6 @@
 //@ts-check
 // import Phaser from "phaser";
+import Store from "./store/Store";
 import BaseGame from "./libs/BaseGame";
 import FSM from "./fsm/index";
 import * as Components from "./components/index";
@@ -25,7 +26,10 @@ export default class Game extends BaseGame {
                 return acc;
             }, new Map());
 
-		this.scene.add("GameScene", GameScene);
+        this.scene.add("GameScene", GameScene);
+        
+        this.store = new Store();
+        this.store.init();
 		
 		this.fsm = new FSM(this);
 		this.fsm.init();
@@ -33,6 +37,20 @@ export default class Game extends BaseGame {
 
     run() {
 		this.fsm.run();
+    }
+
+    createComponent(name) {
+        if (!this.components.has(name)) {
+            throw new Error(`Such component: ${name} is not registered!`);
+        }
+        
+        const Component = this.components.get(name);
+        
+        return new Component({ 
+            store: this.store,
+            scene: this.currentScene,
+            layout: this.currentLayout 
+        });
     }
 
     resize() {

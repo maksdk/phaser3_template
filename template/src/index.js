@@ -5,6 +5,12 @@
 //> 2) PreloadScene 
 //> 3) Base classes
 //> 4) extensions 
+//> 5) PrebuildingMainWindowState
+//> 6) идея структуры: 
+    //> components - сушности приложения с контролером, моделью, вьюхой
+    //> uicontainers - набор общих вьюх 
+
+//> все модели сетятся  
 
 import Game from "./Game.js";
 

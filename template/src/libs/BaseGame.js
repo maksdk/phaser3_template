@@ -34,6 +34,16 @@ export default class BaseGame extends Phaser.Game {
          * @type {Phaser.Scene}
          */
         this.currentScene = null;
+
+        /**
+         * @type {Class}
+         */
+        this.network = null;
+
+        /**
+         * @type {boolean}
+         */
+        this.debuggerMode = false;
     }
     /**
      * @param {string} name 

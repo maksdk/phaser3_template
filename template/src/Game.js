@@ -1,18 +1,26 @@
 //@ts-check
-import Store from "./store/Store";
 import BaseGame from "./libs/BaseGame";
+
+import Store from "./store/Store";
+import Network from "./network/index";
 import FSM from "./fsm/index";
+
 import * as Components from "./components/index";
 import { GameScene } from "./scenes/index";
 
 export default class Game extends BaseGame {
     constructor(config) {
         super(config);
-    }
 
-    static create(config) {
-        const game = new Game(config);
-        return game;
+        this.components = new Map();
+
+        this.store = null;
+        this.fsm = null;
+        this.network = null;
+        this.currentLayout = null;
+        this.currentScene = null;
+
+        this.debuggerMode = true;
     }
 
     init() {
@@ -35,11 +43,17 @@ export default class Game extends BaseGame {
 		
 		// init fsm
 		this.fsm = new FSM(this);
-		this.fsm.init();
+        this.fsm.init();
+        
+        this.network = Network;
     }
 
     run() {
-		this.fsm.run();
+        this.fsm.run();
+        
+        if (this.debuggerMode) {
+            window.Game = this;
+        }
     }
 
     createComponent(name) {
@@ -61,5 +75,10 @@ export default class Game extends BaseGame {
         const gh = this.currentScene.sys.renderer.height;
         
         this.currentLayout.setPosition(gw * 0.5, gh * 0.5);
+    }
+
+    static create(config) {
+        const game = new Game(config);
+        return game;
     }
 }

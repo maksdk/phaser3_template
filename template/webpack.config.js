@@ -1,4 +1,8 @@
 //@ts-check
+
+//@ts-ignore
+require("@babel/polyfill");
+
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -6,7 +10,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = (env={}, arg={}) => {
     return {
         devtool: 'eval-source-map',
-        entry: { main: "./src/index.js" },
+        entry: ["@babel/polyfill", "./src/index.js" ],
         output: {
             path: path.resolve(__dirname, "dist"),
             filename: "main.js"
@@ -24,7 +28,11 @@ module.exports = (env={}, arg={}) => {
                     test: /\.js$/,
                     exclude: /node_modules/,
                     use: {
-                        loader: "babel-loader"
+                        loader: "babel-loader",
+                        options: {
+                            presets: ['@babel/preset-env'],
+                            plugins: ['@babel/plugin-proposal-class-properties']
+                        }
                     }
                 }
             ]

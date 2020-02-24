@@ -24,7 +24,7 @@ export default class EnergyFullView extends BaseView {
 		
 		const energyValue = new Phaser.GameObjects.Text(this.scene, 0, 0, "0", { fontSize: "30px", fontStyle: "bold" });
         energyValue.setOrigin(0.5);
-		energyValue.setPosition(25, 0);
+		energyValue.setPosition(-25, 30);
 		this.energyValue = energyValue;
         this.add(energyValue);
         

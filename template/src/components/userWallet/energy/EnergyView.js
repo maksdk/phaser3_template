@@ -46,7 +46,7 @@ export default  class EnergyView extends BaseView {
 
 		// add new view
 		const ViewClass = this.views.get(state);
-		this.currentView = new ViewClass(this.scene);
+		this.currentView = new ViewClass(this);
 		this.currentView.onEnter();
 		this.add(this.currentView);
 	}

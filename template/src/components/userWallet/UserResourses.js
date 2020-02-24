@@ -24,6 +24,7 @@ export default class UserResoursesComponent extends BaseComponent {
     }
 
     updateEnergy(state) {
+        console.log("updateUserEnergy", state)
         this.energyView.updateState(state);
     }
 }

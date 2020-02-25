@@ -1,6 +1,8 @@
 //@ts-check
 //@ts-ignore
 import axios from "axios";
+import { GeneralResponseParser, UserResponseParser, GiftResponseParser } from "./responseParsers/index";
+
 
 export default class Network {
     static get config() {
@@ -50,24 +52,12 @@ export default class Network {
             return { error };
         }
         
-        const  [ general = [], user = [], gift = []] = response;
-        console.log(response)
-        // return new Promise((resolve, reject) => {
-        //     const response = (res = []) => {
-        //         const [general = [], user = [], gift = []] = res;
-
-        //         const { result: generalResult } = general[1] || {};
-        //         const { result: userResult } = user[1] || {};
-        //         const { result: giftResult, gift: gifts = [] } = gift[1] || {};
-
-        //         if (generalResult === 1 && userResult === 1 && giftResult === 1) {
-        //             resolve([general[1], user[1], gifts]);
-        //         }
-
-        //         reject(res);
-        //     };
-
-        //     Network.get(reqList);
-        // });
+		const  [ general = [], user = [], gift = []] = response;
+		
+		const parsedGeneral = GeneralResponseParser.parse(general);
+		const parsedUser = UserResponseParser.parse(user);
+		const parsedGift = GiftResponseParser.parse(gift);
+    
+		return {...parsedGeneral, ...parsedGift, ...parsedUser };
     }
 }

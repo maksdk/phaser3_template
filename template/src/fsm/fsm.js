@@ -17,7 +17,7 @@ export default class FSM extends BaseFSM {
 	}
 
     run() {
-        this.setState(States.GameSceneState.name);
+        this.setState(States.PreloadSceneState.name);
 	}
 	
 	setState(stateName) {

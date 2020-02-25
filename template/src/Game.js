@@ -6,7 +6,7 @@ import Network from "./network/index";
 import FSM from "./fsm/index";
 
 import * as Components from "./components/index";
-import { GameScene } from "./scenes/index";
+import * as Scenes from "./scenes/index";
 
 export default class Game extends BaseGame {
     constructor(config) {
@@ -35,7 +35,9 @@ export default class Game extends BaseGame {
             }, new Map());
 
 		// add scenes 
-        this.scene.add("GameScene", GameScene);
+		Object.entries(Scenes).forEach(([name, scene]) => {
+			this.scene.add(name, scene);
+		});
 		
 		// init store
         this.store = new Store();

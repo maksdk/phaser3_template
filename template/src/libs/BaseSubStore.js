@@ -23,4 +23,9 @@ export default class BaseSubStore {
             this.store.addGetter(name, () => this[name]);
         });
     }
+
+    /**
+     * @param {object} data 
+     */
+    setData(data) {}
 }

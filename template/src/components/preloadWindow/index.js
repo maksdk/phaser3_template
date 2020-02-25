@@ -2,7 +2,7 @@
 import BaseComponent from "../../libs/BaseComponent";
 import BaseView from "../../libs/BaseView";
 
-class PreloadSceneView extends BaseView {
+class PreloadWindowView extends BaseView {
 	constructor(scene) {
 		super(scene);
 		const gw = this.scene.sys.renderer.width;
@@ -18,14 +18,14 @@ class PreloadSceneView extends BaseView {
 	}
 }
 
-export default class PreloadSceneComponent extends BaseComponent {
+export default class PreloadWindow extends BaseComponent {
 	constructor(config) {
 		super(config);
 		this.view = null;
 	}
 
 	run() {
-		this.view = new PreloadSceneView(this.scene);
+		this.view = new PreloadWindowView(this.scene);
 		this.layout.add(this.view);
 	}
 

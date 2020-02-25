@@ -1,6 +1,6 @@
 //@ts-check
 import BaseStore from "../libs/BaseStore";
-import GeneralStore from "./GeneralStore";
+import GeneralStore from "./subStores/GeneralSubStore";
 import * as SubStores from "./subStores/index";
 
 export default class Store extends BaseStore {
@@ -17,6 +17,14 @@ export default class Store extends BaseStore {
 
                 return acc;
             }, new Map());
+    }
+
+    setData(data) {
+        this.subStores.forEach(substore => {
+            substore.setData(data);
+        });
+
+        this.emit("updateData");
     }
     
     addGetter(name, getterFunction) {

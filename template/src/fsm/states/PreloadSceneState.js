@@ -16,11 +16,22 @@ export default class PreloadSceneState extends BaseState {
         this.fsm.game.resize();
         
 		const { game } = this.fsm;
-
-		const loading = game.createComponent("PreloadScene");
-		loading.run();
+		
+		const preloadWindow = game.createComponent("PreloadWindow");
+		preloadWindow.run();
 
 		const result = await game.network.loadInitData();
-		console.log(result);
+
+		preloadWindow.remove();
+
+		const { error } = result;
+		if (error) {
+			this.fsm.setState('ErrorWindowState');
+			return;
+		}
+
+		game.store.setData(result);
+
+		this.fsm.setState('MainWindowState');
 	}
 }

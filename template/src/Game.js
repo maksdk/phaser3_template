@@ -58,7 +58,7 @@ export default class Game extends BaseGame {
         }
     }
 
-    createComponent(name) {
+    createComponent(name, options={}) {
         if (!this.components.has(name)) {
             throw new Error(`Such component: ${name} is not registered!`);
         }
@@ -68,7 +68,8 @@ export default class Game extends BaseGame {
         return new Component({ 
             store: this.store,
             scene: this.currentScene,
-            layout: this.currentLayout 
+            layout: this.currentLayout,
+            ...options
         });
     }
 

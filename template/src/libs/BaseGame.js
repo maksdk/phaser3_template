@@ -47,9 +47,10 @@ export default class BaseGame extends Phaser.Game {
     }
     /**
      * @param {string} name 
+     * @param {object} [options={}] 
      * @returns {import('./BaseComponent').ComponentInterface}
      */
-    createComponent(name) {
+    createComponent(name, options={}) {
         return null;
     }
     init() { }

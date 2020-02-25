@@ -15,11 +15,12 @@ export default class BaseStore extends EventEmitter {
         this.subStores = new Map();
 
         /**
-         * @type {import("../store/GeneralStore").GeneralStoreInterface}
+         * @type {import("../store/subStores/GeneralSubStore").GeneralStoreInterface}
          */
         this.general = null;
     }
     
     init() {}
     addGetter(name, getterFunction) {}
+    setData(data) {}
 }

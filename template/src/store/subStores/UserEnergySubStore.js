@@ -25,8 +25,8 @@ export default class UserEnergySubStore extends BaseSubStore {
      */
     setData(data) {
         if (!data || !data.userEnergy) return;
-
         const { userEnergy } = data;
+        
 
         const { 
             energy = this.energy,

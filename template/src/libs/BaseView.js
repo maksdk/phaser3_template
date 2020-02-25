@@ -9,8 +9,10 @@ import Phaser from "phaser";
 export default class BaseView extends Phaser.GameObjects.Container {
     /**
      * @param {import("./BaseScene").SceneInterface} scene 
+     * @param {object} [options={}] 
      */
-    constructor(scene) {
+    constructor(scene, options={}) {
         super(scene, 0, 0);
+        this.options = options;
     }
 }

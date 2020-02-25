@@ -1,12 +1,9 @@
 //@ts-check
 import BaseStore from "../libs/BaseStore";
-import GeneralStore from "./subStores/GeneralSubStore";
 import * as SubStores from "./subStores/index";
 
 export default class Store extends BaseStore {
     init() {
-        this.general = new GeneralStore({});
-
         this.subStores = Object.entries(SubStores)
             .reduce((acc, [name, SubStore]) => {
                 if (acc.has(name)) {

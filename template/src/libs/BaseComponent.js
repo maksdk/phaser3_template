@@ -1,10 +1,12 @@
 //@ts-check
+import EventEmitter from "eventemitter3";
 
 /**
  * @typedef {BaseComponent} ComponentInterface
  * @class
+ * @extends { EventEmitter }
  */
-export default class BaseComponent {
+export default class BaseComponent extends EventEmitter {
     /**
      * @param {Object} config 
      * @param {import('./BaseScene').SceneInterface} config.scene 
@@ -12,7 +14,8 @@ export default class BaseComponent {
      * @param {import('./BaseStore').StoreInterface} config.store
      */
     constructor(config) {
-
+        super();
+        
         const { scene, layout, store } = config;
 
         /**

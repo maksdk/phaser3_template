@@ -1,10 +1,14 @@
 //@ts-check
 export default class UserResponseParser {
 	static parse(data) {
-		const { result, user, ...rest } = data[1];
+		const { result } = data[1];
 		if (result !== 1) {
-			return { error: "User  error " };
+			return { error: "User  error" };
 		}
+
+		const {  user, mission, ...rest } = data[1];
+
+		console.log(data[1])
 
 		const { 
 			money1, 
@@ -18,7 +22,7 @@ export default class UserResponseParser {
 		} = user;
 
 		return { 
-
+			userMission: mission,
 			userEnergy: { 
 				energy, 
 				energy_max, 

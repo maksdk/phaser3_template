@@ -29,6 +29,7 @@ const CONFIG = {
 
 window.addEventListener("load", () => {
 	const game = Game.create(CONFIG);
-	game.init();
-	game.run();
+	game.init(() => {
+        game.run();
+    });
 });

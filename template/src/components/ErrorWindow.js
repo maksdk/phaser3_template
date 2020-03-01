@@ -1,6 +1,6 @@
 //@ts-check
-import BaseComponent from "../../libs/BaseComponent";
-import BaseView from "../../libs/BaseView";
+import BaseComponent from "../libs/BaseComponent";
+import BaseView from "../libs/BaseView";
 
 class ErrorWindowView extends BaseView {
 	constructor(scene) {
@@ -21,17 +21,7 @@ class ErrorWindowView extends BaseView {
 export default class ErrorWindow extends BaseComponent {
     constructor(config) {
         super(config);
-        this.view = null;
+        this.view = new ErrorWindowView(this.scene);
+		this.stage.add(this.view);
     }
-
-    run() {
-		this.view = new ErrorWindowView(this.scene);
-		this.layout.add(this.view);
-	}
-
-	remove() {
-		this.view.setVisible(false);
-		this.view.destroy();
-		this.view = null;
-	}
 }

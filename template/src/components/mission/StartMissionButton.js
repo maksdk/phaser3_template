@@ -41,7 +41,7 @@ export default class StartMissionButton extends BaseComponent {
         this.view = new StartMissionButtonView(this.scene);
         this.view.setPosition(0, 300);
         this.view.on("click", this.onClick, this);
-        this.layout.add(this.view);
+        this.stage.add(this.view);
     }
 
     onClick(e) {

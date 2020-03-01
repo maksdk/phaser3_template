@@ -7,7 +7,7 @@ import { GeneralResponseParser, UserResponseParser, GiftResponseParser } from ".
 export default class Network {
     static get config() {
         return {
-            uid: "111111111",
+            uid: "574753715268",
             url: "https://testapps.host/find_diff/od/htdocs/index.php"
         }
     };
@@ -57,7 +57,7 @@ export default class Network {
 		const parsedGeneral = GeneralResponseParser.parse(general);
 		const parsedUser = UserResponseParser.parse(user);
 		const parsedGift = GiftResponseParser.parse(gift);
-    
+        console.log(general)
 		return {...parsedGeneral, ...parsedGift, ...parsedUser };
     }
 }

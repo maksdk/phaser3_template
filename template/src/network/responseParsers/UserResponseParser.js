@@ -6,7 +6,7 @@ export default class UserResponseParser {
 			return { error: "User  error" };
 		}
 
-		const {  user, mission, ...rest } = data[1];
+		const {  user, mission, company, stage, ...rest } = data[1];
 
 		console.log(data[1])
 
@@ -23,6 +23,8 @@ export default class UserResponseParser {
 
 		return { 
 			userMission: mission,
+			userCompany: company,
+			userStage: stage,
 			userEnergy: { 
 				energy, 
 				energy_max, 

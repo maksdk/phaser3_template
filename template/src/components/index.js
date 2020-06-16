@@ -1,12 +1,12 @@
 //@ts-check
-import PreloadWindow from "./preloadWindow/index";
 import UserWallet from "./userWallet/index";
-import ErrorWindow from "./errorWindow/index";
 import StartMissionButton from "./mission/index";
+import ErrorWindow from "./ErrorWindow";
+import PreloadWindow from "./PreloadWindow";
 
 export {
     PreloadWindow,
-    UserWallet,
     ErrorWindow,
+    UserWallet,
     StartMissionButton
 };

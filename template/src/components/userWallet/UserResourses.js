@@ -17,7 +17,7 @@ export default class UserResoursesComponent extends BaseComponent {
 		//@ts-ignore
         const energy = this.store.userEnergy;
         this.energyView.updateState(energy);
-        this.layout.add(this.energyView);
+        this.stage.add(this.energyView);
 		
 		//@ts-ignore
         this.store.on("updateUserEnergy", this.updateEnergy, this);

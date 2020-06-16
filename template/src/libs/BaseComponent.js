@@ -10,13 +10,13 @@ export default class BaseComponent extends EventEmitter {
     /**
      * @param {Object} config 
      * @param {import('./BaseScene').SceneInterface} config.scene 
-     * @param {import('./BaseLayout').LayoutInterface} config.layout
+     * @param {import('./BaseLayout').LayoutInterface} config.stage
      * @param {import('./BaseStore').StoreInterface} config.store
      */
     constructor(config) {
         super();
         
-        const { scene, layout, store } = config;
+        const { scene, stage, store } = config;
 
         /**
          * @type {import('../store/Store').StoreType}
@@ -26,7 +26,7 @@ export default class BaseComponent extends EventEmitter {
         /**
          * @type {import('./BaseLayout').LayoutInterface}
          */
-        this.layout = layout;
+        this.stage = stage;
 
         /**
          * @type {import('./BaseScene').SceneInterface}
@@ -39,6 +39,32 @@ export default class BaseComponent extends EventEmitter {
         this.view = null;
     }
 
-    init() {}
-    run() {}
+    init(cb) {
+        cb && cb();
+    }
+
+    run() {
+        
+    }
+
+    destroy(cb) {
+        if (this.view) this.view.destroy();
+        cb && cb();
+    }
+
+    setPosition(...arg) {
+        if (arg.length === 0) {
+            throw new Error("You must pass positions!");
+        } 
+
+        let x = arg[0];
+        let y = arg[1];
+
+        if (arg.length === 1) {
+            x = arg[0];
+            y = arg[0];
+        } 
+
+        if (this.view) this.view.setPosition(x, y);
+    }
 }

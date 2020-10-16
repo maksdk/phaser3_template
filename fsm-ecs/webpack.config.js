@@ -19,7 +19,10 @@ module.exports = {
         }],
     },
     plugins: [
-        new HtmlWebpackPlugin()
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, 'src', 'index.html'),
+            filename: 'index.html'
+        })
     ],
     resolve: {
         extensions: ['.js', '.ts', '.json'],

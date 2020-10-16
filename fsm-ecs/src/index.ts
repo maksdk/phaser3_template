@@ -1,11 +1,9 @@
 import { Game } from '@game/Game';
 
 const config = {
-    autoDensity: true,
     backgroundColor: 0x010d21,
     width: 900,
-    height: 900,
-    container: document.body
+    height: 900
 };
 
 const game = new Game(config);

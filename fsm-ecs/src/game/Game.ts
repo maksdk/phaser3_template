@@ -2,6 +2,8 @@ import { Container, Application } from 'pixi.js';
 import { Ticker } from '@libs/Ticker';
 import { IResizeCallbackArg, ResizeManager } from '@libs/ResizeManager';
 import { GameFSM, IGameFSM } from '@states/GameFSM'
+import { MainScene } from '@views/MainScene';
+import { IScene } from '@views/interfaces';
 
 export interface IAppConfig {
     backgroundColor: number;
@@ -10,8 +12,10 @@ export interface IAppConfig {
 }
 
 export interface IGame {
+    width: number;
+    height: number;
     ticker: Ticker;
-    scene: Container;
+    scene: IScene;
     resizeManager: ResizeManager;
     fsm: IGameFSM;
     start(): void;
@@ -19,20 +23,29 @@ export interface IGame {
 
 export class Game {
     public ticker: Ticker;
-    public scene: Container;
+    public scene: IScene;
     public resizeManager: ResizeManager;
     public fsm: IGameFSM;
+    public width: number;
+    public height: number;
 
     private app: PIXI.Application;
 
-    constructor(config: IAppConfig) {
-        this.app = new Application(config);
+    constructor(public config: IAppConfig) {
+       
+        this.width = config.width;
+        this.height = config.height;
+
+        this.app = new Application(this.config);
+
         this.ticker = new Ticker(this.app);
-        this.scene = new Container();
+
         this.resizeManager = new ResizeManager(this.app, {
-            width: config.width,
-            height: config.height
+            width: this.width,
+            height: this.height
         });
+
+        this.scene = new MainScene(this);
 
         this.fsm = new GameFSM(this);
     }

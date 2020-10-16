@@ -1,10 +1,13 @@
 import { FSM, IFSM } from '@libs/FSM';
 import { IGame } from '@game/Game';
 import { PreloadingState } from '@states/PreloadingState';
-import { GameplayState } from '@states/Gameplay';
+import { GameplayState } from '@game/states/GameplayState';
 import { StateIds, GameFSMEvents } from '@states/constants';
+import { IScene } from '@game/views/interfaces';
 
-export interface IGameFSM extends IFSM {};
+export interface IGameFSM extends IFSM {
+    scene: IScene;
+}
 
 const config = {
     id: 'machine',
@@ -22,8 +25,12 @@ const config = {
 };
 
 export class GameFSM extends FSM implements IFSM {
+    public scene: IScene;
+
     constructor(private game: IGame) {
         super(config, GameFSM.states);
+
+        this.scene = this.game.scene;
     }
 
     private static get states() {
